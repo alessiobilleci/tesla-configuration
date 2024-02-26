@@ -1,0 +1,12 @@
+<label for="modelSelect">Model: </label>
+<select (change)="setModel($event)" name="model" id="modelSelect">
+    <option *ngFor="let model of modelOptions" [value]="model.code">{{model.description}}
+    </option>
+</select>
+
+<label for="colorSelect">Color:</label>
+<select (change)="setColor($event)" *ngIf="selectedModel" name="color" id="colorSelect">
+    <option *ngFor="let color of selectedModel()?.colors" [value]="color.code">{{color.description}}</option>
+</select>
+
+<img *ngIf="imgSrc" [src]="imgSrc" alt="">
