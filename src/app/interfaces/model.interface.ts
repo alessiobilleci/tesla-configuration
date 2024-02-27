@@ -9,3 +9,16 @@ export interface IColor {
     description: string;
     price: number
 }
+export interface IConfigOptionsResponse {
+    configs: IConfig[];
+    towHitch: boolean;
+    yoke: boolean;
+}
+
+export interface IConfig {
+    id: number;
+    description: string;
+    range: number;
+    speed: number;
+    price: number;
+}

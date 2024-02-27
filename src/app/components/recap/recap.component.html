@@ -1,0 +1,37 @@
+<h1>Step 3: Summary</h1>
+<h2>Your Tesla {{util.selectedModel()?.description}}</h2>
+<!-- Selected Configuration  -->
+<div>
+    <div class="recap-container">
+        <p><b>{{util.selectedConfig()?.description}}</b></p>
+        <p>{{ util.selectedConfig()?.price | currency : 'USD'}}</p>
+    </div>
+    <p *ngIf="util.selectedConfig()">Range: {{ util.selectedConfig()?.range }} - Max speed: {{
+        util.selectedConfig()?.speed}}</p>
+</div>
+
+<!-- Selected Color -->
+<div class="recap-container">
+    <p><b>{{util.selectedColor()?.description}} Color</b></p>
+    <p>{{util.selectedColor()?.price | currency :'USD'}}</p>
+</div>
+
+<!-- Optional Other Configurations -->
+<div *ngIf="util.isTowHitch()" class="recap-container">
+    <p><b>Tow Hitch Package: </b></p>
+    <p>{{fixedPrices.Yoke | currency :'USD'}}</p>
+</div>
+
+<div *ngIf="util.isYoke()" class="recap-container">
+    <p><b>Yoke Steering wheel Package: </b></p>
+    <p>{{fixedPrices.Yoke | currency :'USD'}}</p>
+</div>
+
+<hr>
+<div class="recap-container">
+    <p><b>TOTAL COST:</b></p>
+    <p>{{totalPrice() | currency : 'USD'}}</p>
+</div>
+<hr>
+
+<img *ngIf="util.imgSrc" [src]="util.imgSrc" alt="">

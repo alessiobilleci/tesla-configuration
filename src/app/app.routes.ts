@@ -1,6 +1,23 @@
 import { Routes } from '@angular/router';
-import { ModelsResolver } from './services/resolvers';
+import { ModelsResolver, OptionsResolver } from './services/resolvers';
 export const routes: Routes = [
+    {
+        path: 'config',
+        loadComponent: () =>
+            import(
+                './components/config-options/config-options.component'
+            ).then((c) => c.ConfigOptionsComponent),
+        resolve: {
+            options: OptionsResolver
+        }
+    },
+    {
+        path: 'recap',
+        loadComponent: () =>
+            import(
+                './components/recap/recap.component'
+            ).then((c) => c.RecapComponent)
+    },
     {
         path: '',
         loadComponent: () =>

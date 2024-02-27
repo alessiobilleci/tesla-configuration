@@ -1,17 +1,15 @@
-import { Component, computed } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { UtilService } from '../../services/util.service';
 
 @Component({
   selector: 'app-steps',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './steps.component.html',
   styleUrl: './steps.component.scss'
 })
 export class StepsComponent {
-  constructor(private utilService: UtilService) {
 
-  }
-  isCarConfigured = computed(() => this.utilService.selectedColor() && this.utilService.selectedModelCode());
-
+  constructor(public utilService: UtilService) { }
 }

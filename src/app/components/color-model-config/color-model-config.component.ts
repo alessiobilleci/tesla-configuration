@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { IModel } from '../../interfaces/model.interface';
 import { UtilService } from '../../services/util.service';
 
@@ -11,31 +12,41 @@ import { UtilService } from '../../services/util.service';
   templateUrl: './color-model-config.component.html',
   styleUrl: './color-model-config.component.scss'
 })
-export class ColorModelConfigComponent implements OnInit {
+export class ColorModelConfigComponent implements OnInit, OnDestroy {
+  @ViewChild('model') model!: ElementRef;
+  @ViewChild('color') color!: ElementRef;
+
+  modelOptionsSubscription!: Subscription
 
   modelOptions: IModel[] = [];
 
-  constructor(private route: ActivatedRoute, private util: UtilService) { }
+  constructor(private route: ActivatedRoute, public util: UtilService) { }
 
-  selectedModelCode = signal<string | null>(this.util.selectedModelCode());
-  selectedModel = signal<IModel | null | undefined>(this.util.selectedModel());
-  selectedColor = signal<string | null>(this.util.selectedColor());
 
-  get imgSrc(): string | null {
-    return this.selectedColor() && this.selectedModelCode() ? 'https://interstate21.com/tesla-app/images/' + this.selectedModelCode() + '/' + this.selectedColor() + '.jpg' : null;
-  }
+
+  get selectedModel() { return this.util.selectedModel(); }
+  get selectedColor() { return this.util.selectedColor(); }
+
   ngOnInit(): void {
-    this.route.data.subscribe(({ models }) => {
+
+    this.modelOptionsSubscription = this.route.data.subscribe(({ models }) => {
       this.modelOptions = models;
     });
   }
 
-  setModel(model: Event) {
-    this.selectedModelCode.set(((model.currentTarget) as HTMLInputElement).value);
-    this.selectedModel.set(this.modelOptions.find(model => model.code === this.selectedModelCode()))
+  setModel() {
+    this.util.selectedModel.set(this.modelOptions.find(model => model.code === this.model.nativeElement.value));
+    this.resetConfigOptions();
   }
 
-  setColor(color: Event) {
-    this.selectedColor.set(((color.currentTarget) as HTMLInputElement).value);
+  setColor() {
+    this.util.selectedColor.set(this.util.selectedModel()?.colors.find(color => color.code == this.color.nativeElement.value));
+    this.resetConfigOptions();
+  }
+
+  resetConfigOptions() { this.util.isYoke.set(false); this.util.isTowHitch.set(false); }
+
+  ngOnDestroy() {
+    this.modelOptionsSubscription.unsubscribe();
   }
 }
