@@ -44,7 +44,7 @@ export class ColorModelConfigComponent implements OnInit, OnDestroy {
     this.resetConfigOptions();
   }
 
-  resetConfigOptions() { this.util.isYoke.set(false); this.util.isTowHitch.set(false); }
+  resetConfigOptions() { this.util.selectedConfig.set(null); this.util.isYoke.set(false); this.util.isTowHitch.set(false); }
 
   ngOnDestroy() {
     this.modelOptionsSubscription.unsubscribe();
