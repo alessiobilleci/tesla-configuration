@@ -6,7 +6,7 @@
         <p><b>{{util.selectedConfig()?.description}}</b></p>
         <p>{{ util.selectedConfig()?.price | currency : 'USD'}}</p>
     </div>
-    <p *ngIf="util.selectedConfig()">Range: {{ util.selectedConfig()?.range }} - Max speed: {{
+    <p *ngIf="util.selectedConfig()">Range: {{ util.selectedConfig()?.range }} miles - Max speed: {{
         util.selectedConfig()?.speed}}</p>
 </div>
 
