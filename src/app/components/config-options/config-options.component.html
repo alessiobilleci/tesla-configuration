@@ -9,7 +9,7 @@
     </option>
 </select>
 <p>
-    <span *ngIf="util.selectedConfig()">Range: {{ util.selectedConfig()?.range }} - Max speed: {{
+    <span *ngIf="util.selectedConfig()">Range: {{ util.selectedConfig()?.range }} range - Max speed: {{
         util.selectedConfig()?.speed
         }} - Cost: {{
         util.selectedConfig()?.price | currency :'USD'}}</span>
