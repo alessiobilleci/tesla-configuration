@@ -1,0 +1,14 @@
+# This YAML file holds config for Backstage.io Demo Registration
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tesla-configuration
+  description: Tesla Configuration - An existing Angular app NOW registered in Backstage
+  annotations:
+    github.com/project-slug: alessiobilleci/tesla-configuration
+    backstage.io/source-location: url:https://github.com/alessiobilleci/tesla-configuration/tree/feature-backstage-integration
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: website
+  lifecycle: development
+  owner: frontend-team
