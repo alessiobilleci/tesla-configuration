@@ -1,5 +1,6 @@
 # This YAML file holds config for Backstage.io Demo Registration
 apiVersion: backstage.io/v1alpha1
+# kind vuol dire letteralmente "tipo" cioè il tipo che si sta registrando (Component, User, Group...)
 kind: Component
 metadata:
   name: tesla-configuration
