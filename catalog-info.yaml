@@ -7,7 +7,7 @@ metadata:
   annotations:
     backstage.io/techdocs-ref: dir:.    
     github.com/project-slug: alessiobilleci/tesla-configuration
-    azure.com/pipelines: abilleci/backstage-demo/2  
+    dev.azure.com/pipelines: abilleci/backstage-demo/2  
 spec:
   type: website
   lifecycle: development
