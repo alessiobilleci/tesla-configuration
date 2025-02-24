@@ -1,6 +1,5 @@
 # This YAML file holds config for Backstage.io Demo Registration
 apiVersion: backstage.io/v1alpha1
-# kind vuol dire letteralmente "tipo" cioè il tipo che si sta registrando (Component, User, Group...)
 kind: Component
 metadata:
   name: tesla-configuration
@@ -8,9 +7,10 @@ metadata:
   annotations:
     backstage.io/techdocs-ref: dir:.    
     github.com/project-slug: alessiobilleci/tesla-configuration
-    dev.azure.com/project-repo: backstage-demo/github
-    dev.azure.com/build-definition: "2"  # Replace with actual pipeline ID
-    dev.azure.com/project: backstage-demo
+    dev.azure.com/project-repo: backstage-demo/github  # Ensure project name is correct
+    dev.azure.com/build-definition: "2"  # Ensure this is a string
+    dev.azure.com/project: backstage-demo  # Ensure project name matches Azure DevOps
+    dev.azure.com/org: abilleci  # ✅ Added the missing organization annotation
 spec:
   type: website
   lifecycle: development
