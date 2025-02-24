@@ -8,7 +8,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.    
     github.com/project-slug: alessiobilleci/tesla-configuration
     azure.com/pipelines: abilleci/backstage-demo/2  
- spec:
+spec:
   type: website
   lifecycle: development
   owner: frontend-team
