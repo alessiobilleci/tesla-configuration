@@ -7,7 +7,9 @@ metadata:
   description: Tesla Configuration - An existing Angular app NOW registered in Backstage
   annotations:
     backstage.io/techdocs-ref: dir:.
-    dev.azure.com/project-repo: my-project/my-repo
+    github.com/project-slug: alessiobilleci/tesla-configuration
+    dev.azure.com/project: backstage-demo
+    dev.azure.com/pipeline: alessiobilleci.tesla-configuration
 spec:
   type: website
   lifecycle: development
