@@ -8,7 +8,7 @@ metadata:
   annotations:
     backstage.io/techdocs-ref: dir:.    
     github.com/project-slug: alessiobilleci/tesla-configuration
-    dev.azure.com/project-repo: abilleci/alessiobilleci.tesla-configuration/github
+    dev.azure.com/project-repo: backstage-demo/github
     dev.azure.com/build-definition: "2"  # Replace with actual pipeline ID
     dev.azure.com/project: backstage-demo
 spec:
