@@ -1,0 +1,18 @@
+trigger:
+  branches:
+    include:
+      - main  # ✅ Runs on the main branch
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self  # ✅ Pulls code from GitHub
+
+  - script: echo "Hello from Azure DevOps!"
+    displayName: 'Print Greeting'
+
+  - script: |
+      npm install
+      npm test
+    displayName: 'Install Dependencies & Run Tests'
