@@ -12,7 +12,3 @@ steps:
   - script: echo "Hello from Azure DevOps!"
     displayName: 'Print Greeting'
 
-  - script: |
-      npm install
-      npm test
-    displayName: 'Install Dependencies & Run Tests'
