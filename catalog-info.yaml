@@ -16,4 +16,4 @@ metadata:
 spec:
   type: website
   lifecycle: development
-  owner: frontend-team
+  owner: backend-team
