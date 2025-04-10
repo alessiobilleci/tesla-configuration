@@ -12,7 +12,9 @@ metadata:
     dev.azure.com/project-repo: alessiobilleci/tesla-configuration
     dev.azure.com/build-definition: alessiobilleci.tesla-configuration
     dev.azure.com/project: backstage-demo
-    
+
+    servicenow.com/instance-url: https://dev316705.service-now.com/
+    servicenow.com/table: incident
 spec:
   type: website
   lifecycle: development
